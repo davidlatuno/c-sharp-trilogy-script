@@ -22,7 +22,8 @@ namespace ConsoleApp1
                 foreach (string i in solvedFolders)
                 {
                     
-                    Console.WriteLine(i);
+                    Console.WriteLine("Deleting" + i);
+                    Directory.Delete(i, true);
                 }
             }
             else
@@ -43,7 +44,8 @@ namespace ConsoleApp1
                     arrayIndex++;
                     if (Directory.Exists(allFolders[i-1] + "/Solved"))
                     {
-                        Console.WriteLine(allFolders[i-1]);
+                        Console.WriteLine("Deleted " + allFolders[i-1]);
+                        Directory.Delete(allFolders[i - 1] + "/Solved", true);
                     }
                 }
                 for (int i = 0; i < arrayLength; i++)
