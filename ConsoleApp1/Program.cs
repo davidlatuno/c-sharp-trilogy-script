@@ -12,15 +12,16 @@ namespace ConsoleApp1
             int endingValue;
             int arrayLength;
             int arrayIndex = 0;
-
+            string[] allFolders = Directory.GetDirectories(".", "*", SearchOption.TopDirectoryOnly);
+            string[] solvedFolders = Directory.GetDirectories(".", "Solved", SearchOption.AllDirectories);
             Console.Write("Enter Initial Value or type ALL: \n");
             userInput = Console.ReadLine();
             if (userInput.ToUpper() == "ALL")
             {
                 Console.WriteLine("Get all the things!!!!!");
-                string[] entries = Directory.GetFiles(".", "*", SearchOption.AllDirectories);
-                foreach (string i in entries)
+                foreach (string i in solvedFolders)
                 {
+                    
                     Console.WriteLine(i);
                 }
             }
@@ -40,6 +41,10 @@ namespace ConsoleApp1
                 {
                     folderArray[arrayIndex] = i;
                     arrayIndex++;
+                    if (Directory.Exists(allFolders[i-1] + "/Solved"))
+                    {
+                        Console.WriteLine(allFolders[i-1]);
+                    }
                 }
                 for (int i = 0; i < arrayLength; i++)
                 {
